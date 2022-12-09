@@ -1,10 +1,12 @@
 # Rusty-Language-Refiner
 
-This is a basic app to search through multilingual youtube video transcripts and display translated words/terms in a target language. In this v0.0.0 release, the app has a database of ~100 videos in the chinese target language.
+This is a basic app to search through multilingual youtube video transcripts and display translated words/terms in a target language. In this v0.0.0 release, the app has a database of ~100 videos in the chinese target language. Currently, the app uses BM25 to select the most relevant videos, and BM25 again to select the most relevant segment of each returned video.
 
 ## User Documentation
 
 This application is distributed as a `.AppImage` file for use on Linux (should work on WSL2 in Windows 11 but this is untested). AppImages require FUSE to run, if not already installed, please use your system package manager to install the `libfuse2` package. If you have another operating system, please see the Developer Documentation below to build for the correct platform.
+
+The release files for the application can be found in the "Releases" tab of this github repository.
 
 ### Running the Application
 
@@ -56,6 +58,8 @@ The frontend consists of two basic components:
 
 Development on the frontend requires a `npm` version 16 or newer installed and available in the path.
 
+Frontend files are found in the `src/` directory.
+
 ### Backend
 
 The backend is structured in two main components:
@@ -64,6 +68,8 @@ The backend is structured in two main components:
 1. a `searcher` library crate, that includes generic indexing and query functions to allow multiple search strategies.
 
 Development on the backend requires `cargo` to be installed and available in the path.
+
+Backend files are found in the `src-tauri/` directory. The main source code is nested in the `src-tauri/src/` directory.
 
 #### Searcher Library
 
